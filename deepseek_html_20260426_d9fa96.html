@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ariane Lesnyak · Data Entry Keyer | AI Training Data Specialist</title>
+  <meta name="description" content="75+ WPM | 99.9% accuracy | 1M+ records processed. Specialized in data entry, transcription, AI training data curation, and document management for advanced automation systems.">
+  
+  <!-- Google Fonts - Outfit Thin -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #000000;
+      color: #ffffff;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Desktop - Three elements: left, center, right */
+    .navbar-desktop {
+      position: fixed;
+      top: 2rem;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .navbar-desktop.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    /* Left side - About & Case Studies */
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .nav-left a {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 22.4px;
+      color: #ffffffcc;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-left a:hover {
+      opacity: 0.7;
+    }
+
+    /* Center - Name */
+    .nav-center {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Right side - Get in Touch */
+    .nav-right .get-in-touch {
+      background-color: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 0.5rem 1.12rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 400;
+      font-family: 'Outfit', sans-serif;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .nav-right .get-in-touch:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Compact Navbar (appears on scroll) */
+    .nav-compact {
+      position: fixed;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1001;
+      background: #000000;
+      border-radius: 2rem;
+      padding: 0.6rem 1.2rem;
+      transition: top 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-compact.visible {
+      top: 1rem;
+    }
+
+    .nav-compact .nav-scroll-menu {
+      display: flex;
+      grid-column-gap: 0.4rem;
+      grid-row-gap: 0.4rem;
+      pointer-events: auto;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-compact a {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 22.4px;
+      color: #ffffffcc;
+      text-decoration: none;
+      padding: 0.3rem 0.8rem;
+    }
+
+    .nav-compact .compact-logo {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #ffffff;
+      margin-right: 1rem;
+    }
+
+    /* Hero Section with Video Background */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 90%;
+      padding: 0 2rem;
+    }
+
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 88px;
+      line-height: 92.4px;
+      letter-spacing: -2.2px;
+      color: #ffffff;
+      margin-bottom: 2rem;
+    }
+
+    /* NEW: Data Entry Highlight Section (Black, 1/3 hero height) */
+    .data-entry-highlight {
+      background: #000000;
+      min-height: 33vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .highlight-grid {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .highlight-item {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .highlight-number {
+      font-size: 3rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #ffffff, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .highlight-label {
+      font-size: 0.9rem;
+      color: #ffffffcc;
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+    @media (max-width: 768px) {
+      .highlight-number { font-size: 2.2rem; }
+      .highlight-grid { gap: 1.5rem; }
+    }
+
+    /* Data Section with Static Background Image and Scroll-triggered text */
+    .data-section {
+      position: relative;
+      min-height: 220vh;
+      background: #000000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      overflow: hidden;
+    }
+
+    .data-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('./img.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .data-content {
+      position: sticky;
+      top: calc(50vh - 100px);
+      z-index: 1;
+      text-align: center;
+      width: 100%;
+      max-width: 800px;
+      min-height: 200px;
+    }
+
+    .data-quote {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 36px;
+      color: #ffffffcc;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      padding: 0 2rem;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+    }
+
+    .data-quote.hidden { opacity: 0; }
+    .data-quote.visible { opacity: 1; }
+
+    /* Case Studies Section */
+    .cases-section {
+      background: #000000;
+      padding: 6rem 2rem;
+    }
+
+    .cases-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .cases-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 44px;
+      line-height: 57.2px;
+      letter-spacing: -1.1px;
+      color: #ffffffcc;
+      margin-bottom: 1rem;
+    }
+
+    .cases-subtitle {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 32px;
+      color: #ffffff99;
+    }
+
+    /* Case Cards */
+    .cases-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .case-card {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      margin-bottom: 4rem;
+      transition: all 0.3s ease;
+    }
+
+    .case-card:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
+    }
+
+    .case-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    @media (min-width: 768px) { .case-header { padding: 2rem; } }
+
+    .case-header-top {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .case-header svg { width: 1.25rem; height: 1.25rem; color: #3b82f6; }
+    .case-title { font-family: 'Outfit', sans-serif; font-weight: 400; font-size: 1.25rem; color: #ffffff; }
+    .case-metrics { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .case-metric { font-size: 0.75rem; padding: 0.25rem 0.75rem; border-radius: 9999px; background: rgba(255,255,255,0.08); color: #ffffffcc; border: 1px solid rgba(255,255,255,0.1); }
+
+    .case-animation {
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.3);
+      min-height: 280px;
+    }
+    @media (min-width: 768px) { .case-animation { padding: 2rem; } }
+
+    .case-description { padding: 1.5rem; }
+    @media (min-width: 768px) { .case-description { padding: 2rem; } }
+    .case-description p { font-size: 0.875rem; color: #ffffffcc; margin-bottom: 0.75rem; font-weight: 300; }
+    .case-description strong { color: #ffffff; font-weight: 500; }
+    .case-keywords { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-top: 0.5rem; }
+    .case-keyword { font-size: 0.625rem; padding: 0.125rem 0.5rem; border-radius: 9999px; background: rgba(59,130,246,0.15); color: #3b82f6; font-weight: 400; }
+
+    /* Terminal Animation (Data Entry Simulation) */
+    .terminal-container {
+      background: #0a0a0a;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+    .terminal-line.muted { color: #666; }
+    .terminal-line.error { color: #f87171; }
+    .terminal-line.success { color: #34d399; }
+
+    /* Subtitle / Data Cleaning Animation */
+    .data-cleaning-container { min-height: 220px; }
+    .data-box { padding: 1rem; border-radius: 0.75rem; margin-bottom: 1rem; opacity: 0; }
+    .data-box.before { background: rgba(127,29,29,0.2); border: 1px solid rgba(127,29,29,0.3); animation: fadeIn 0.5s ease 0.2s forwards; }
+    .data-box.after { background: rgba(6,78,59,0.2); border: 1px solid rgba(6,78,59,0.3); animation: fadeIn 0.5s ease 1s forwards; }
+    .data-label { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 0.5rem; }
+    .data-box.before .data-label { color: #f87171; }
+    .data-box.after .data-label { color: #34d399; }
+    .data-text { font-size: 0.875rem; font-style: normal; color: #cbd5e1; margin-bottom: 0.5rem; }
+    .data-error { background: rgba(239,68,68,0.3); padding: 0.125rem 0.25rem; border-radius: 0.25rem; text-decoration: line-through; }
+    .data-fix { background: rgba(16,185,129,0.2); padding: 0.125rem 0.25rem; border-radius: 0.25rem; }
+    .data-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .data-tag.error { background: rgba(127,29,29,0.4); color: #fca5a5; }
+    .data-tag.success { background: rgba(6,78,59,0.4); color: #6ee7b7; }
+    .data-arrow { display: flex; justify-content: center; margin: 0.5rem 0; }
+    .data-arrow-line { width: 1px; height: 2rem; background: #3b82f6; opacity: 0; animation: growLine 0.3s ease 0.8s forwards; }
+
+    @keyframes growLine { from { transform: scaleY(0); opacity: 0; } to { transform: scaleY(1); opacity: 1; } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Taxonomy / Data Categorization Animation */
+    .taxonomy-container { position: relative; width: 100%; height: 16rem; overflow: hidden; }
+    @media (min-width: 768px) { .taxonomy-container { height: 18rem; } }
+    .taxonomy-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .taxonomy-line { stroke: #3b82f6; stroke-width: 1; stroke-opacity: 0.3; stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+    .taxonomy-line.animate { animation: slideLine 1s ease forwards; }
+    @keyframes slideLine { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+    @keyframes popIn { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+    .taxonomy-node { position: absolute; transform: translateX(-50%); font-size: 0.625rem; font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 0.5rem; opacity: 0; animation: popIn 0.4s ease forwards; white-space: nowrap; }
+    .taxonomy-node.root { background: #3b82f6; color: white; }
+    .taxonomy-node.category { background: #1a1a1a; border: 1px solid #333; }
+    .taxonomy-node.leaf { background: #111; border: 1px solid #222; }
+    .taxonomy-demo { position: absolute; bottom: 0.5rem; left: 50%; transform: translateX(-50%); background: #0a0a0a; border: 1px solid #222; border-radius: 0.5rem; padding: 0.5rem 1rem; font-size: 0.75rem; white-space: nowrap; opacity: 0; animation: fadeInUp 0.5s ease 2s forwards; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+
+    /* Footer */
+    footer { background: #0a0a0a; padding: 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-content { max-width: 1200px; margin: 0 auto; font-size: 0.75rem; color: #666; }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 48px; line-height: 56px; }
+      .navbar-desktop { padding: 0 1rem; top: 1rem; }
+      .nav-left { gap: 1rem; }
+      .nav-left a { font-size: 12px; }
+      .nav-center { font-size: 0.875rem; white-space: nowrap; }
+      .cases-title { font-size: 32px; line-height: 42px; }
+      .data-quote { font-size: 18px; line-height: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Desktop Navbar -->
+  <div class="navbar-desktop" id="desktopNav">
+    <div class="nav-left">
+      <a href="#about">About me</a>
+      <a href="#cases">Case studies</a>
+    </div>
+    <div class="nav-center">ariane lesnyak.</div>
+    <div class="nav-right"><a href="#contact" class="get-in-touch">Get in touch</a></div>
+  </div>
+
+  <!-- Compact Navbar -->
+  <div class="nav-compact" id="compactNav">
+    <div class="nav-scroll-menu">
+      <span class="compact-logo">a.</span>
+      <a href="#about">about me</a>
+      <a href="#cases">case studies</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Data Entry Keyer</h1>
+    </div>
+  </section>
+
+  <!-- NEW: Black section highlighting data entry metrics (1/3 hero height) -->
+  <div class="data-entry-highlight">
+    <div class="highlight-grid">
+      <div class="highlight-item">
+        <div class="highlight-number">75+ WPM</div>
+        <div class="highlight-label">Typing Speed</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-number">99.9%</div>
+        <div class="highlight-label">Accuracy Rate</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-number">1.2M+</div>
+        <div class="highlight-label">Records Processed</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-number">10K+</div>
+        <div class="highlight-label">Documents Transcribed</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data Section with Static Background and Scroll-triggered Text -->
+  <section class="data-section" id="about">
+    <div class="data-bg"></div>
+    <div class="data-content">
+      <div class="data-quote visible" id="quote1">
+        High-accuracy data processing across AI pipelines. <br>Every record, every field, verified for integrity.
+      </div>
+      <div class="data-quote hidden" id="quote2">
+        <p style="font-size: 16px;">75+ WPM · 99.9% accuracy · 0.02% error rate · ISO 9001:2015 aligned</p>
+        From raw transcription to structured datasets <br> I turn information chaos into AI‑ready gold
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section (3 cases aligned with Data Entry Keyer role) -->
+  <section class="cases-section" id="cases">
+    <div class="cases-header reveal">
+      <h2 class="cases-title">Data Operations & AI Training</h2>
+      <p class="cases-subtitle">Structured data entry · Document transcription · Quality assurance · AI dataset curation</p>
+    </div>
+
+    <div class="cases-container">
+      <!-- CASE 1: High-Volume Data Entry & Record Management -->
+      <div class="case-card reveal">
+        <div class="case-header">
+          <div class="case-header-top">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M17 7.5h4"/><path d="M17 16.5h4"/></svg>
+            <h3 class="case-title">High-Volume Data Entry & Record Management</h3>
+          </div>
+          <div class="case-metrics">
+            <span class="case-metric">75+ WPM sustained</span>
+            <span class="case-metric">99.9% accuracy</span>
+            <span class="case-metric">500K+ rows cleaned</span>
+          </div>
+        </div>
+        <div class="case-animation">
+          <div class="terminal-container" id="terminal-animation">
+            <div class="terminal-line muted">$ RAW DATA EXTRACT (BEFORE):</div>
+            <div class="terminal-line" id="line1"></div>
+            <div class="terminal-line error" id="line2"></div>
+            <div class="terminal-line warning" id="line3"></div>
+            <div class="terminal-line" id="line4"></div>
+            <div class="terminal-line success" id="line5"></div>
+            <div class="terminal-line" id="line6"></div>
+            <div class="terminal-line success" id="line7"></div>
+          </div>
+        </div>
+        <div class="case-description">
+          <p><strong>Challenge:</strong> 500,000+ unstructured records with inconsistent formats, missing fields, and duplication across 12 legacy systems.</p>
+          <p><strong>Solution:</strong> Designed standardized data entry templates, implemented double‑entry verification, and built validation rules using regex and fuzzy matching.</p>
+          <p><strong>Outcome:</strong> Achieved 75+ WPM with 99.9% accuracy, reduced duplicate records by 94%, and accelerated downstream AI training pipelines by 61%.</p>
+          <div class="case-keywords">
+            <span class="case-keyword">Data Entry</span>
+            <span class="case-keyword">Record Management</span>
+            <span class="case-keyword">Data Cleansing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 2: AI Training Data Curation & Document Transcription -->
+      <div class="case-card reveal">
+        <div class="case-header">
+          <div class="case-header-top">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+            <h3 class="case-title">AI Training Data Curation & Document Transcription</h3>
+          </div>
+          <div class="case-metrics">
+            <span class="case-metric">10K+ docs transcribed</span>
+            <span class="case-metric">98% consistency</span>
+            <span class="case-metric">3.2M tokens validated</span>
+          </div>
+        </div>
+        <div class="case-animation">
+          <div class="data-cleaning-container">
+            <div class="data-box before">
+              <div class="data-label">Before — Hallucinated / Noisy Text</div>
+              <p class="data-text">"Client req. refund <span class="data-error">90 days</span> after purchase according to <span class="data-error">Law 12.345/2020</span> (invalid)."</p>
+              <div class="data-tags"><span class="data-tag error">⚠ Fabricated date</span><span class="data-tag error">❌ Fake legal ref</span></div>
+            </div>
+            <div class="data-arrow"><div class="data-arrow-line"></div></div>
+            <div class="data-box after">
+              <div class="data-label">After — Verified, Standardized Entry</div>
+              <p class="data-text">"Customer may request refund within <span class="data-fix">7 business days</span> under <span class="data-fix">Consumer Protection Code (Art. 49)</span>."</p>
+              <div class="data-tags"><span class="data-tag success">✓ Fact-checked</span><span class="data-tag success">✓ Standardized</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="case-description">
+          <p><strong>Challenge:</strong> AI models trained on web‑scraped data contained hallucinations and inconsistent formatting, causing downstream errors.</p>
+          <p><strong>Solution:</strong> Manual transcription and curation of 10K+ documents, applying structured data guidelines, flagging anomalies, and building a golden dataset.</p>
+          <p><strong>Outcome:</strong> 98% label consistency, 70% reduction in model hallucination, and delivery of high‑quality training data for production NLP systems.</p>
+          <div class="case-keywords">
+            <span class="case-keyword">Document Transcription</span>
+            <span class="case-keyword">AI Training Data</span>
+            <span class="case-keyword">Data Standardization</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 3: Structured Data Formatting & Quality Assurance -->
+      <div class="case-card reveal">
+        <div class="case-header">
+          <div class="case-header-top">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            <h3 class="case-title">Structured Data Formatting & Quality Assurance</h3>
+          </div>
+          <div class="case-metrics">
+            <span class="case-metric">2,700+ taxonomy nodes</span>
+            <span class="case-metric">67% fewer errors</span>
+            <span class="case-metric">ISO 25964</span>
+          </div>
+        </div>
+        <div class="case-animation">
+          <div class="taxonomy-container" id="taxonomy-animation">
+            <svg class="taxonomy-svg">
+              <line class="taxonomy-line" x1="50%" y1="12%" x2="20%" y2="37%" />
+              <line class="taxonomy-line" x1="50%" y1="12%" x2="50%" y2="37%" />
+              <line class="taxonomy-line" x1="50%" y1="12%" x2="80%" y2="37%" />
+              <line class="taxonomy-line" x1="20%" y1="37%" x2="8%" y2="62%" />
+              <line class="taxonomy-line" x1="20%" y1="37%" x2="32%" y2="62%" />
+              <line class="taxonomy-line" x1="50%" y1="37%" x2="44%" y2="62%" />
+              <line class="taxonomy-line" x1="50%" y1="37%" x2="58%" y2="62%" />
+              <line class="taxonomy-line" x1="80%" y1="37%" x2="72%" y2="62%" />
+              <line class="taxonomy-line" x1="80%" y1="37%" x2="90%" y2="62%" />
+            </svg>
+            <div class="taxonomy-node root" style="left: 50%; top: 8%;">Document Types</div>
+            <div class="taxonomy-node category" style="left: 20%; top: 33%;">Invoices</div>
+            <div class="taxonomy-node category" style="left: 50%; top: 33%;">Contracts</div>
+            <div class="taxonomy-node category" style="left: 80%; top: 33%;">Reports</div>
+            <div class="taxonomy-node leaf" style="left: 8%; top: 58%;">PO number</div>
+            <div class="taxonomy-node leaf" style="left: 32%; top: 58%;">Due date</div>
+            <div class="taxonomy-node leaf" style="left: 44%; top: 58%;">Clause 4.2</div>
+            <div class="taxonomy-node leaf" style="left: 58%; top: 58%;">Signatures</div>
+            <div class="taxonomy-node leaf" style="left: 72%; top: 58%;">KPI metrics</div>
+            <div class="taxonomy-node leaf" style="left: 90%; top: 58%;">Anomalies</div>
+            <div class="taxonomy-demo">
+              <span>🔍 Data QA: </span>
+              <span class="search-term">"PO number missing"</span>
+              <span class="result"> → Flagged & corrected ✓ 67% fewer zero‑results</span>
+            </div>
+          </div>
+        </div>
+        <div class="case-description">
+          <p><strong>Challenge:</strong> Inconsistent data formatting across departments led to manual reconciliation delays and data silos.</p>
+          <p><strong>Solution:</strong> Built 2,700+ term taxonomy based on ISO 25964, created data entry style guides, and implemented automated QA rules.</p>
+          <p><strong>Outcome:</strong> 67% reduction in data inconsistencies, 45% faster retrieval, and full compliance with internal data governance.</p>
+          <div class="case-keywords">
+            <span class="case-keyword">Data Formatting</span>
+            <span class="case-keyword">QA Automation</span>
+            <span class="case-keyword">Taxonomy Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-content">
+      © 2026 Ariane Lesnyak · Data Entry Keyer · Available for contract work
+    </div>
+  </footer>
+
+  <script>
+    // Compact Navbar + hide desktop navbar on scroll
+    const compactNav = document.getElementById('compactNav');
+    const desktopNav = document.getElementById('desktopNav');
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > 100) {
+        compactNav.classList.add('visible');
+        desktopNav.classList.add('hide');
+      } else {
+        compactNav.classList.remove('visible');
+        desktopNav.classList.remove('hide');
+      }
+    });
+
+    // Scroll-triggered text swap (data section)
+    const quote1 = document.getElementById('quote1');
+    const quote2 = document.getElementById('quote2');
+    const dataSection = document.querySelector('.data-section');
+    let quote1Active = true;
+
+    function updateQuotes() {
+      if (!dataSection) return;
+      const rect = dataSection.getBoundingClientRect();
+      const sectionHeight = dataSection.offsetHeight;
+      const progress = -rect.top / (sectionHeight - window.innerHeight);
+      if (progress > 0.35 && quote1Active) {
+        quote1.classList.remove('visible'); quote1.classList.add('hidden');
+        quote2.classList.remove('hidden'); quote2.classList.add('visible');
+        quote1Active = false;
+      } else if (progress <= 0.35 && !quote1Active) {
+        quote2.classList.remove('visible'); quote2.classList.add('hidden');
+        quote1.classList.remove('hidden'); quote1.classList.add('visible');
+        quote1Active = true;
+      }
+    }
+    window.addEventListener('scroll', updateQuotes, { passive: true });
+    updateQuotes();
+
+    // Scroll reveal for case cards
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+    }, { threshold: 0.1, rootMargin: '-50px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // Taxonomy animation
+    const taxonomyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const lines = entry.target.querySelectorAll('.taxonomy-line');
+          const nodes = entry.target.querySelectorAll('.taxonomy-node');
+          lines.forEach((line, i) => setTimeout(() => line.classList.add('animate'), 300 + i * 100));
+          nodes.forEach((node, i) => node.style.animationDelay = `${0.2 + i * 0.08}s`);
+        }
+      });
+    }, { threshold: 0.3 });
+    const taxonomyAnim = document.getElementById('taxonomy-animation');
+    if (taxonomyAnim) taxonomyObserver.observe(taxonomyAnim);
+
+    // Terminal typing animation (Case 1)
+    const terminalObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('typed')) {
+          entry.target.classList.add('typed');
+          const lines = [
+            { el: document.getElementById('line1'), text: '"<ID> 1045678 </ID> | Status: PENDING | Date: 2025-01-15 | Amt: $ 2,340.00"', delay: 0 },
+            { el: document.getElementById('line2'), text: '❌ Errors: missing field "Region", invalid date format, duplicate record ID', delay: 1000 },
+            { el: document.getElementById('line3'), text: '✏️ APPLYING DATA ENTRY PROTOCOLS (double‑entry + regex validation)...', delay: 2000 },
+            { el: document.getElementById('line4'), text: '', delay: 3500 },
+            { el: document.getElementById('line5'), text: '✅ STANDARDIZED RECORD (AFTER):', delay: 4000 },
+            { el: document.getElementById('line6'), text: '"ID: 1045678 | Region: EMEA | Status: Pending | Date: 2025-01-15 | Amount: 2,340.00"', delay: 5000 },
+            { el: document.getElementById('line7'), text: '📊 75+ WPM sustained · 99.9% accuracy · 500K+ rows cleaned', delay: 6500 }
+          ];
+          lines.forEach(({ el, text, delay }) => {
+            if (!el) return;
+            setTimeout(() => {
+              let i = 0;
+              const type = () => { if (i < text.length) { el.textContent += text.charAt(i); i++; setTimeout(type, 20); } };
+              type();
+            }, delay);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    const terminalAnim = document.getElementById('terminal-animation');
+    if (terminalAnim) terminalObserver.observe(terminalAnim);
+  </script>
+</body>
+</html>
